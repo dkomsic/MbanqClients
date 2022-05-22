@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MbanqClients", "MbanqClients.csproj", "{2F500BB4-BE9A-4B1E-B84E-293F4DB28D2A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F500BB4-BE9A-4B1E-B84E-293F4DB28D2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F500BB4-BE9A-4B1E-B84E-293F4DB28D2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F500BB4-BE9A-4B1E-B84E-293F4DB28D2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F500BB4-BE9A-4B1E-B84E-293F4DB28D2A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20A848F5-4B3B-49B7-8D4A-000C9272F42F}
+	EndGlobalSection
+EndGlobal
