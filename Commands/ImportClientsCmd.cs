@@ -38,6 +38,7 @@ namespace MbanqClients.Commands
                 {
                     clientsViewModel.mbanqEntities.Osobe.Add(item);
                 }
+
                 clientsViewModel.mbanqEntities.SaveChanges();
             }
             clientsViewModel.ClientList = new ObservableCollection<Osobe>(clientsViewModel.mbanqEntities.Osobe);

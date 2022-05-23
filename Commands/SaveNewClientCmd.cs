@@ -32,7 +32,7 @@ namespace MbanqClients.Commands
         {
             Osobe AddedClient = new Osobe();
             AddedClient.ID = ++lastClientId;
-            AddedClient.OIB = addClientViewModel.OIB; //todo add check here
+            AddedClient.OIB = addClientViewModel.OIB;
             AddedClient.Ime = addClientViewModel.Ime;
             AddedClient.Prezime = addClientViewModel.Prezime;
             AddedClient.Mjesto = addClientViewModel.Mjesto;
@@ -41,7 +41,14 @@ namespace MbanqClients.Commands
             AddedClient.Mail = addClientViewModel.Mail;
 
             mbanqEntities.Osobe.Add(AddedClient);
-            mbanqEntities.SaveChanges();
+            try
+            {
+                mbanqEntities.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("DbValidationError"); // add some sort of notification to gui
+            }
             navigationMenu.CurrentViewModel = new ClientsViewModel(navigationMenu);
         }
     }

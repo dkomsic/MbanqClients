@@ -10,9 +10,12 @@
 namespace MbanqClients.Models
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+    using System.Data.Entity.Validation;
+    using System.Linq;
+
     public partial class MbanqEntities : DbContext
     {
         public MbanqEntities()
@@ -26,5 +29,30 @@ namespace MbanqClients.Models
         }
     
         public virtual DbSet<Osobe> Osobe { get; set; }
+
+        protected override DbEntityValidationResult ValidateEntity(DbEntityEntry entityEntry, IDictionary<object, object> items)
+        {
+            var result = new DbEntityValidationResult(entityEntry, new List<DbValidationError>());
+
+            if (entityEntry.Entity is Osobe client && (entityEntry.State == EntityState.Added || entityEntry.State == EntityState.Modified))
+            {
+                if (Osobe.Where(x => x.OIB == client.OIB).Any())
+                {
+                    result.ValidationErrors.Add(
+                            new System.Data.Entity.Validation.DbValidationError(
+                                nameof(client.ID),
+                                "OIB be unique."));
+                }
+            }
+
+            if (result.ValidationErrors.Count > 0)
+            {
+                return result;
+            }
+            else
+            {
+                return base.ValidateEntity(entityEntry, items);
+            }
+        }
     }
 }
