@@ -32,14 +32,9 @@
             </ListView>
 
             <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="5">
-
-            <Button Name="ButtonAdd" Margin="3" Content="Add New" Command="{Binding AddClientCmd}">
-            </Button>
-            <Button Name="ButtonDelete" Margin="3" Content="Delete" Command="{Binding DelClientCmd}">
-                </Button>
-            <Button Name="ButtonUpdate" Margin="3" Content="Update" Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType={x:Type ListView}}}"
-                                            CommandParameter="{Binding}">
-                </Button>
+            <Button Name="ButtonAdd" Margin="3" Content="Add New" Command="{Binding AddClientCmd}"></Button>
+            <Button Name="ButtonDelete" Margin="3" Content="Delete" Command="{Binding DelClientCmd}"></Button>
+            <Button Name="ButtonUpdate" Margin="3" Content="Update" Command="{Binding UpdateClientCmd}"></Button>
             </StackPanel>
 
     </Grid>

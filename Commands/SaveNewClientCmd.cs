@@ -2,10 +2,6 @@
 using MbanqClients.Models;
 using MbanqClients.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MbanqClients.Commands
@@ -36,7 +32,7 @@ namespace MbanqClients.Commands
         {
             Osobe AddedClient = new Osobe();
             AddedClient.ID = ++lastClientId;
-            AddedClient.OIB = addClientViewModel.OIB;
+            AddedClient.OIB = addClientViewModel.OIB; //todo add check here
             AddedClient.Ime = addClientViewModel.Ime;
             AddedClient.Prezime = addClientViewModel.Prezime;
             AddedClient.Mjesto = addClientViewModel.Mjesto;

@@ -1,12 +1,8 @@
 ﻿using MbanqClients.Commands;
 using MbanqClients.Menu;
 using MbanqClients.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MbanqClients.ViewModels
@@ -15,6 +11,7 @@ namespace MbanqClients.ViewModels
     {
         #region Private properties
         private ObservableCollection<Osobe> clientList;
+
         private Osobe selectedClient;
         #endregion
 
@@ -41,8 +38,10 @@ namespace MbanqClients.ViewModels
             }
         }
 
-        public ICommand AddClientCmd { get;}
-        public ICommand DelClientCmd { get;}
+        public ICommand AddClientCmd { get; }
+        public ICommand DelClientCmd { get; }
+        public ICommand UpdateClientCmd { get; }
+        #endregion
 
         public ClientsViewModel(NavigationMenu navigation)
         {
@@ -50,11 +49,12 @@ namespace MbanqClients.ViewModels
             LoadData();
             AddClientCmd = new OpenAddClientViewCmd(navigation, mbanqEntities.Osobe.Count());
             DelClientCmd = new DeleteClientCmd(this);
+            UpdateClientCmd = new OpenUpdateClientViewCmd(navigation, this);
         }
         private void LoadData()
         {
             ClientList = new ObservableCollection<Osobe>(mbanqEntities.Osobe);
         }
-        #endregion
+
     }
 }

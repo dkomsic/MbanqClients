@@ -66,7 +66,9 @@
     </ApplicationDefinition>
     <Compile Include="Commands\DeleteClientCmd.cs" />
     <Compile Include="Commands\OpenAddClientViewCmd.cs" />
+    <Compile Include="Commands\OpenUpdateClientViewCmd.cs" />
     <Compile Include="Commands\SaveNewClientCmd.cs" />
+    <Compile Include="Commands\SaveUpdateClientCmd.cs" />
     <Compile Include="Menu\NavigationMenu.cs" />
     <Compile Include="Models\ClientDetails.Context.cs">
       <AutoGen>True</AutoGen>

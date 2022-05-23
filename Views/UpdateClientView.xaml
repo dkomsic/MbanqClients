@@ -136,7 +136,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <Button Name="ButtonAdd" Margin="3" Width ="80" Content="Save" Command="{Binding SaveClientCmd}"></Button>
+            <Button Name="ButtonAdd" Margin="3" Width ="80" Content="Save" Command="{Binding UpdateClientCmd}"></Button>
         </Grid>
     </Grid>
 </UserControl>

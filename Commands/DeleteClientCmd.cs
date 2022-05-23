@@ -1,10 +1,6 @@
 ﻿using MbanqClients.Models;
 using MbanqClients.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace MbanqClients.Commands
@@ -24,7 +20,7 @@ namespace MbanqClients.Commands
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return true; //todo return true only if selected layer != null
         }
 
         public void Execute(object parameter)

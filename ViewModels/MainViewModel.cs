@@ -1,9 +1,4 @@
 ﻿using MbanqClients.Menu;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MbanqClients.ViewModels
 {
@@ -11,7 +6,7 @@ namespace MbanqClients.ViewModels
     {
         private NavigationMenu navigationMenu;
 
-        public ViewModelBase CurrentViewModel => navigationMenu.currentViewModel ;
+        public ViewModelBase CurrentViewModel => navigationMenu.currentViewModel;
         public MainViewModel(NavigationMenu _navigationMenu)
         {
             navigationMenu = _navigationMenu;
