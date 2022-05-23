@@ -2,8 +2,8 @@
 using MbanqClients.Models;
 using MbanqClients.ViewModels;
 using System;
-using System.Windows.Input;
 using System.Linq;
+using System.Windows.Input;
 
 namespace MbanqClients.Commands
 {

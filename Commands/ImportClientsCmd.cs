@@ -1,5 +1,4 @@
 ﻿using MbanqClients.Helpers;
-using MbanqClients.Menu;
 using MbanqClients.Models;
 using MbanqClients.ViewModels;
 using System;
@@ -22,8 +21,8 @@ namespace MbanqClients.Commands
         public void Execute(object parameter)
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
-            dialog.DefaultExt = ".csv"; 
-            dialog.Filter = "Text documents (.csv)|*.csv"; 
+            dialog.DefaultExt = ".csv";
+            dialog.Filter = "Text documents (.csv)|*.csv";
 
             bool? result = dialog.ShowDialog();
             List<Osobe> importedClients = new List<Osobe>();

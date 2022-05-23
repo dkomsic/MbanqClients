@@ -35,6 +35,7 @@ namespace MbanqClients.ViewModels
             {
                 selectedClient = value;
                 OnPropertyChanged(nameof(SelectedClient));
+                OnPropertyChanged(nameof(IsSelectedClientChanged));
             }
         }
 
@@ -42,6 +43,7 @@ namespace MbanqClients.ViewModels
         public ICommand DelClientCmd { get; }
         public ICommand UpdateClientCmd { get; }
         public ICommand ImportClientsCmd { get; }
+        public static bool IsSelectedClientChanged { get; internal set; }
         #endregion
 
         public ClientsViewModel(NavigationMenu navigation)
@@ -51,6 +53,7 @@ namespace MbanqClients.ViewModels
             AddClientCmd = new OpenAddClientViewCmd(navigation, mbanqEntities.Osobe.Count());
             DelClientCmd = new DeleteClientCmd(this);
             UpdateClientCmd = new OpenUpdateClientViewCmd(navigation, this);
+            ImportClientsCmd = new ImportClientsCmd(this);
         }
         private void LoadData()
         {

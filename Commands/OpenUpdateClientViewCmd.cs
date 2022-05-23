@@ -2,6 +2,7 @@
 using MbanqClients.Models;
 using MbanqClients.ViewModels;
 using System;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace MbanqClients.Commands
@@ -14,7 +15,7 @@ namespace MbanqClients.Commands
 
         public bool CanExecute(object parameter)
         {
-            return true; // todo return true only if selected layer != null
+            return clientsViewModel.SelectedClient == null ? false : true;
         }
 
         public void Execute(object parameter)
@@ -27,6 +28,15 @@ namespace MbanqClients.Commands
         {
             navigationMenu = _navigationMenu;
             clientsViewModel = _clientsViewModel;
+            clientsViewModel.PropertyChanged += OnViewModelPropertyChanged;
+        }
+
+        private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ClientsViewModel.IsSelectedClientChanged))
+            {
+                CanExecuteChanged?.Invoke(this, new EventArgs());
+            }
         }
     }
 }
