@@ -5,37 +5,106 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MbanqClients.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
+             d:DesignHeight="450" 
+             d:DesignWidth="800"
+             Background="#7e67a1"
+             MinWidth="800"
+             MaxWidth="800"
+             MinHeight="450"
+             MaxHeight="450">
+        <Border
+            BorderThickness="3"
+            BorderBrush="#635c6e">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
-
-        <ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding ClientList}" SelectedItem="{Binding SelectedClient}">
+            <TextBlock 
+                Grid.Row ="0" 
+                Grid.Column="0" 
+                Text="Clients" 
+                FontSize="24"
+                Background="#614987">
+            </TextBlock>
+            <ListView 
+                Grid.Row="1" 
+                Grid.Column="1" 
+                Background="#ab9fbf" 
+                ItemsSource="{Binding ClientList}" 
+                SelectedItem="{Binding SelectedClient}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Height" Value="30" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <GridView.Columns>
-                            <GridViewColumn Header ="ID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                            <GridViewColumn Header ="OIB" DisplayMemberBinding="{Binding OIB}"></GridViewColumn>
-                            <GridViewColumn Header ="Ime" DisplayMemberBinding="{Binding Ime}"></GridViewColumn>
-                            <GridViewColumn Header ="Prezime" DisplayMemberBinding="{Binding Prezime}"></GridViewColumn>
-                            <GridViewColumn Header ="Mjesto" DisplayMemberBinding="{Binding Mjesto}"></GridViewColumn>
-                            <GridViewColumn Header ="Adresa" DisplayMemberBinding="{Binding Adresa}"></GridViewColumn>
-                            <GridViewColumn Header ="Telefon" DisplayMemberBinding="{Binding Telefon}"></GridViewColumn>
+                            <GridViewColumn Header ="ID" DisplayMemberBinding="{Binding ID}" Width="44"></GridViewColumn>
+                            <GridViewColumn Header ="OIB" DisplayMemberBinding="{Binding OIB}" Width="60"></GridViewColumn>
+                            <GridViewColumn Header ="Ime" DisplayMemberBinding="{Binding Ime}" Width="60"></GridViewColumn>
+                            <GridViewColumn Header ="Prezime" DisplayMemberBinding="{Binding Prezime}" Width="55"></GridViewColumn>
+                            <GridViewColumn Header ="Mjesto" DisplayMemberBinding="{Binding Mjesto}" Width="100"></GridViewColumn>
+                            <GridViewColumn Header ="Adresa" DisplayMemberBinding="{Binding Adresa}" Width="150"></GridViewColumn>
+                            <GridViewColumn Header ="Mail" DisplayMemberBinding="{Binding Mail}" Width="100"></GridViewColumn>
+                            <GridViewColumn Header ="Telefon" DisplayMemberBinding="{Binding Telefon}" Width="100"></GridViewColumn>
                         </GridView.Columns>
                     </GridView>
                 </ListView.View>
             </ListView>
-
-            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Margin="5">
-            <Button Name="ButtonAdd" Margin="3" Content="Add New" Command="{Binding AddClientCmd}"></Button>
-            <Button Name="ButtonDelete" Margin="3" Content="Delete" Command="{Binding DelClientCmd}"></Button>
-            <Button Name="ButtonUpdate" Margin="3" Content="Update" Command="{Binding UpdateClientCmd}"></Button>
+            
+            <StackPanel 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Orientation="Vertical"
+            Margin="10">
+                <Button 
+                Name="ButtonAdd" 
+                Margin="5" 
+                FontSize="18"
+                BorderBrush="#4e317d"
+                BorderThickness="2"
+                Background="#9f91b5"
+                Content="Add New" 
+                Command="{Binding AddClientCmd}">
+                </Button>
+                <Button 
+                Name="ButtonDelete"
+                Margin="5" 
+                FontSize="18"
+                BorderBrush="#4e317d"
+                BorderThickness="2"
+                Background="#9f91b5"
+                Content="Delete" 
+                Command="{Binding DelClientCmd}">
+                </Button>
+                <Button 
+                Name="ButtonUpdate"
+                Margin="5" 
+                FontSize="18"
+                BorderBrush="#4e317d"
+                BorderThickness="2"
+                Background="#9f91b5"
+                Content="Update"
+                Command="{Binding UpdateClientCmd}">
+                </Button>
+                <Button 
+                Name="ButtonImport"
+                Margin="5" 
+                FontSize="18"
+                BorderBrush="#4e317d"
+                BorderThickness="2"
+                Background="#9f91b5"
+                Content="Import"
+                Command="{Binding ImportClientsCmd}">
+                </Button>
             </StackPanel>
-
-    </Grid>
+            
+        </Grid>
+    </Border>
 </UserControl>

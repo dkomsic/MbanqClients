@@ -41,6 +41,7 @@ namespace MbanqClients.ViewModels
         public ICommand AddClientCmd { get; }
         public ICommand DelClientCmd { get; }
         public ICommand UpdateClientCmd { get; }
+        public ICommand ImportClientsCmd { get; }
         #endregion
 
         public ClientsViewModel(NavigationMenu navigation)
