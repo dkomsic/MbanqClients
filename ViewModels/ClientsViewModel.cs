@@ -43,6 +43,7 @@ namespace MbanqClients.ViewModels
         public ICommand DelClientCmd { get; }
         public ICommand UpdateClientCmd { get; }
         public ICommand ImportClientsCmd { get; }
+        public ICommand ExitCmd { get; }
         public static bool IsSelectedClientChanged { get; internal set; }
         #endregion
 
@@ -54,6 +55,7 @@ namespace MbanqClients.ViewModels
             DelClientCmd = new DeleteClientCmd(this);
             UpdateClientCmd = new OpenUpdateClientViewCmd(navigation, this);
             ImportClientsCmd = new ImportClientsCmd(this);
+            ExitCmd = new ExitCmd();
         }
         private void LoadData()
         {

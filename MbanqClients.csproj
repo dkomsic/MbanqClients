@@ -65,7 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CancelCmd.cs" />
     <Compile Include="Commands\DeleteClientCmd.cs" />
+    <Compile Include="Commands\ExitCmd.cs" />
     <Compile Include="Commands\ImportClientsCmd.cs" />
     <Compile Include="Commands\OpenAddClientViewCmd.cs" />
     <Compile Include="Commands\OpenUpdateClientViewCmd.cs" />
@@ -105,6 +107,11 @@
     <Compile Include="Views\UpdateClientView.xaml.cs">
       <DependentUpon>UpdateClientView.xaml</DependentUpon>
     </Compile>
+    <Resource Include="ButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -6,11 +6,6 @@ namespace MbanqClients.ViewModels
 {
     public class AddClientViewModel : ViewModelBase
     {
-        public ICommand SaveClientCmd { get; }
-        public AddClientViewModel(NavigationMenu navigation, int LastClientId)
-        {
-            SaveClientCmd = new SaveNewClientCmd(this, navigation, LastClientId);
-        }
         private int iD;
         private int oIB;
         private string ime;
@@ -91,6 +86,13 @@ namespace MbanqClients.ViewModels
                 mail = value;
                 OnPropertyChanged(nameof(Mail));
             }
+        }
+        public ICommand SaveClientCmd { get; }
+        public ICommand CancelCmd { get; }
+        public AddClientViewModel(NavigationMenu navigation, int LastClientId)
+        {
+            SaveClientCmd = new SaveNewClientCmd(this, navigation, LastClientId);
+            CancelCmd = new CancelCmd(navigation);
         }
     }
 }

@@ -90,6 +90,7 @@ namespace MbanqClients.ViewModels
         }
 
         public ICommand UpdateClientCmd { get; }
+        public ICommand CancelCmd { get; }
         public UpdateClientViewModel(NavigationMenu _navigationMenu, Osobe _selectedClient)
         {
             this.ID = _selectedClient.ID;
@@ -102,6 +103,7 @@ namespace MbanqClients.ViewModels
             this.Mail = _selectedClient.Mail;
 
             UpdateClientCmd = new SaveUpdateClientCmd(_navigationMenu, this);
+            CancelCmd = new CancelCmd(_navigationMenu);
         }
     }
 }

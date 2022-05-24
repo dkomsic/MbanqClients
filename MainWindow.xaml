@@ -7,19 +7,26 @@
         xmlns:views="clr-namespace:MbanqClients.Views"
         xmlns:viewsModels="clr-namespace:MbanqClients.ViewModels"
         mc:Ignorable="d"
-        Title="Mbanq Clients" Height="450" Width="800">
-    <Grid>
+        Height="450" 
+        Width="800"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="Transparent">
+    <Border BorderBrush="SlateBlue" BorderThickness="3" Background="AliceBlue" Padding="5" CornerRadius="15">
+        <Grid>
         <Grid.Resources>
             <DataTemplate DataType ="{x:Type viewsModels:AddClientViewModel}">
-                <views:AddClientView />
+                <views:AddClientView/>
             </DataTemplate>
             <DataTemplate DataType ="{x:Type viewsModels:UpdateClientViewModel}">
-                <views:UpdateClientView />
+                <views:UpdateClientView/>
             </DataTemplate>
             <DataTemplate DataType ="{x:Type viewsModels:ClientsViewModel}">
-                <views:ClientsView />
+                <views:ClientsView/>
             </DataTemplate>
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
     </Grid>
+        </Border>
 </Window>
