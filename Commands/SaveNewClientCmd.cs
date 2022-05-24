@@ -10,6 +10,7 @@ namespace MbanqClients.Commands
     {
         private readonly NavigationMenu navigationMenu;
         private AddClientViewModel addClientViewModel;
+        private string errorMessage;
         public MbanqEntities mbanqEntities;
         public int lastClientId;
 
@@ -47,9 +48,9 @@ namespace MbanqClients.Commands
             }
             catch (Exception)
             {
-                Console.WriteLine("DbValidationError"); // add some sort of notification to gui
+                errorMessage = "Validation error, OIB cannot be duplicated!";
             }
-            navigationMenu.CurrentViewModel = new ClientsViewModel(navigationMenu);
+            navigationMenu.CurrentViewModel = new ClientsViewModel(navigationMenu, errorMessage);
         }
     }
 }

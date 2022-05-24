@@ -7,6 +7,7 @@ namespace MbanqClients.ViewModels
 {
     public class UpdateClientViewModel : ViewModelBase
     {
+        #region Private properties
         private int iD;
         private int oIB;
         private string ime;
@@ -15,7 +16,8 @@ namespace MbanqClients.ViewModels
         private string adresa;
         private int telefon;
         private string mail;
-
+        #endregion
+        #region Public properties
         public int ID
         {
             get => iD;
@@ -91,6 +93,7 @@ namespace MbanqClients.ViewModels
 
         public ICommand UpdateClientCmd { get; }
         public ICommand CancelCmd { get; }
+        #endregion
         public UpdateClientViewModel(NavigationMenu _navigationMenu, Osobe _selectedClient)
         {
             this.ID = _selectedClient.ID;

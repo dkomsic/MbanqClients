@@ -6,6 +6,7 @@ namespace MbanqClients.ViewModels
 {
     public class AddClientViewModel : ViewModelBase
     {
+        #region Private properties
         private int iD;
         private int oIB;
         private string ime;
@@ -14,7 +15,8 @@ namespace MbanqClients.ViewModels
         private string adresa;
         private int telefon;
         private string mail;
-
+        #endregion
+        #region Public properties
         public int ID
         {
             get => iD;
@@ -89,6 +91,7 @@ namespace MbanqClients.ViewModels
         }
         public ICommand SaveClientCmd { get; }
         public ICommand CancelCmd { get; }
+        #endregion
         public AddClientViewModel(NavigationMenu navigation, int LastClientId)
         {
             SaveClientCmd = new SaveNewClientCmd(this, navigation, LastClientId);

@@ -5,6 +5,10 @@ namespace MbanqClients.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private NavigationMenu navigationMenu;
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
+        }
 
         public ViewModelBase CurrentViewModel => navigationMenu.currentViewModel;
         public MainViewModel(NavigationMenu _navigationMenu)
@@ -13,9 +17,5 @@ namespace MbanqClients.ViewModels
             navigationMenu.CurrentViewModelChanged += OnCurrentViewModelChanged;
         }
 
-        private void OnCurrentViewModelChanged()
-        {
-            OnPropertyChanged(nameof(CurrentViewModel));
-        }
     }
 }

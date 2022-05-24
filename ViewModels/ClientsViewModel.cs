@@ -11,8 +11,8 @@ namespace MbanqClients.ViewModels
     {
         #region Private properties
         private ObservableCollection<Osobe> clientList;
-
         private Osobe selectedClient;
+        private string errorMessage;
         #endregion
 
         #region Public properties
@@ -39,6 +39,16 @@ namespace MbanqClients.ViewModels
             }
         }
 
+        public string ErrorMessage
+        {
+            get { return errorMessage; }
+            set
+            {
+                errorMessage = value;
+                OnPropertyChanged(nameof(ErrorMessage));
+            }
+        }
+
         public ICommand AddClientCmd { get; }
         public ICommand DelClientCmd { get; }
         public ICommand UpdateClientCmd { get; }
@@ -47,7 +57,7 @@ namespace MbanqClients.ViewModels
         public static bool IsSelectedClientChanged { get; internal set; }
         #endregion
 
-        public ClientsViewModel(NavigationMenu navigation)
+        public ClientsViewModel(NavigationMenu navigation, string errorMessage = "")
         {
             mbanqEntities = new MbanqEntities();
             LoadData();
@@ -56,11 +66,11 @@ namespace MbanqClients.ViewModels
             UpdateClientCmd = new OpenUpdateClientViewCmd(navigation, this);
             ImportClientsCmd = new ImportClientsCmd(this);
             ExitCmd = new ExitCmd();
+            ErrorMessage = errorMessage;
         }
         private void LoadData()
         {
             ClientList = new ObservableCollection<Osobe>(mbanqEntities.Osobe);
         }
-
     }
 }
