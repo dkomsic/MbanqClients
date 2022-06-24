@@ -73,6 +73,7 @@
     <Compile Include="Commands\OpenUpdateClientViewCmd.cs" />
     <Compile Include="Commands\SaveNewClientCmd.cs" />
     <Compile Include="Commands\SaveUpdateClientCmd.cs" />
+    <Compile Include="Helpers\CustomTextBox.cs" />
     <Compile Include="Helpers\ImportFileParser.cs" />
     <Compile Include="Menu\NavigationMenu.cs" />
     <Compile Include="Models\ClientDetails.Context.cs">

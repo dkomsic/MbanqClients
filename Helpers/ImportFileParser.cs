@@ -20,9 +20,9 @@ namespace MbanqClients.Helpers
                 while (!csvParser.EndOfData)
                 {
                     string[] fields = csvParser.ReadFields();
-                    Osobe item = new Osobe();
                     try
                     {
+                        Osobe item = new Osobe();
                         item.ID = Convert.ToInt32(fields[0]);
                         item.OIB = Convert.ToInt32(fields[1]);
                         item.Ime = fields[2];
@@ -31,12 +31,13 @@ namespace MbanqClients.Helpers
                         item.Adresa = fields[5];
                         item.Telefon = Convert.ToInt32(fields[6]);
                         item.Mail = fields[7];
+
+                        items.Add(item);
                     }
-                    catch (System.Exception)
+                    catch (Exception)
                     {
                         throw;
                     }
-                    items.Add(item);
                 }
             }
             return items;

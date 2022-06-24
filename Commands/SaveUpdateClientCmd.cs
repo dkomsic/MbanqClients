@@ -31,6 +31,7 @@ namespace MbanqClients.Commands
             UpdatedClient.Adresa = updateClientViewModel.Adresa;
             UpdatedClient.Telefon = updateClientViewModel.Telefon;
             UpdatedClient.Mail = updateClientViewModel.Mail;
+
             try
             {
                 mbanqEntities.SaveChanges();

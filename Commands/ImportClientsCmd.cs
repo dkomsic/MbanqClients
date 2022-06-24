@@ -11,6 +11,7 @@ namespace MbanqClients.Commands
     public class ImportClientsCmd : ICommand
     {
         private ClientsViewModel clientsViewModel;
+        private string errorMessage;
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
@@ -39,9 +40,18 @@ namespace MbanqClients.Commands
                     clientsViewModel.mbanqEntities.Osobe.Add(item);
                 }
 
-                clientsViewModel.mbanqEntities.SaveChanges();
+                try
+                {
+                    clientsViewModel.mbanqEntities.SaveChanges();
+                }
+                catch (Exception e)
+                {
+                    errorMessage = e.Message;
+                }
+                
             }
             clientsViewModel.ClientList = new ObservableCollection<Osobe>(clientsViewModel.mbanqEntities.Osobe);
+            clientsViewModel.ErrorMessage = errorMessage;
         }
 
         public ImportClientsCmd(ClientsViewModel _clientsViewModel)

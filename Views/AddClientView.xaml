@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MbanqClients.Views"
+             xmlns:local="clr-namespace:MbanqClients.Views" xmlns:helpers="clr-namespace:MbanqClients.Helpers"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border 
@@ -52,13 +52,16 @@
                 <TextBlock 
                     Grid.Row="0"
                     Grid.Column="1"
-                    Text="OIB"/>
-                <TextBox
-                Grid.Row="1"
-                    Grid.Column="1"
-                Margin="0,5,720,0"
-                Width ="80"
-                Text="{Binding OIB, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="OIB"
+                    
+                    />
+                <helpers:CustomTextBox
+                    Grid.Row="1"
+                    Margin="0,5,720,0"
+                    Width ="80"
+                    MaxLength="11"
+                    regExpr="[0-9]"
+                    Text="{Binding OIB, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Right" />
             </Grid>
 
             <Grid 
@@ -70,7 +73,8 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="13.49"/>
+                    <ColumnDefinition Width="47.51"/>
                     <ColumnDefinition Width="60"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
@@ -78,21 +82,21 @@
                 <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="Ime" />
+                Text="Ime" Grid.ColumnSpan="2" />
                 <TextBox
                 Grid.Row="1"
                 Grid.Column="0"
                 Margin="0 5 0 0"
-                Text="{Binding Ime, UpdateSourceTrigger=PropertyChanged}" />
+                Text="{Binding Ime, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" />
 
                 <TextBlock
                 Grid.Row="0"
-                Grid.Column="1"
-                Margin="10,0,0,1"
+                Grid.Column="2"
+                Margin="10,0,0,2"
                 Text="Prezime" Grid.ColumnSpan="2" />
                 <TextBox
                 Grid.Row="1"
-                Grid.Column="1"
+                Grid.Column="2"
                 Margin="10 5 0 0"
                 Text="{Binding Prezime, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" />
             </Grid>
@@ -150,11 +154,13 @@
                 Grid.Row="0"
                 Grid.Column="0"
                 Text="Telefon" />
-                <TextBox
-                Grid.Row="1"
-                Grid.Column="0"
-                Margin="0 5 0 0"
-                Text="{Binding Telefon, UpdateSourceTrigger=PropertyChanged}" />
+                <helpers:CustomTextBox
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0 5 0 0"
+                    MaxLength="11"
+                    regExpr="[0-9]"
+                    Text="{Binding Telefon, UpdateSourceTrigger=PropertyChanged}" />
 
                 <TextBlock
                 Grid.Row="0"

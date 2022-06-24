@@ -1,6 +1,7 @@
 ﻿using MbanqClients.Commands;
 using MbanqClients.Menu;
 using MbanqClients.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -70,7 +71,14 @@ namespace MbanqClients.ViewModels
         }
         private void LoadData()
         {
-            ClientList = new ObservableCollection<Osobe>(mbanqEntities.Osobe);
+            try
+            {
+                ClientList = new ObservableCollection<Osobe>(mbanqEntities.Osobe);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Failed to load data from db!");
+            }
         }
     }
 }
